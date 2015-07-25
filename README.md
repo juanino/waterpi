@@ -24,3 +24,6 @@ for water, alert and clear when the condition is corrected.
 * [b connectors for joining wire](http://www.amazon.com/Dolphin-DC-100P-Super-Connector-Pcs/dp/B000JP7FIQ/)
 * [alarm wire](http://www.amazon.com/gp/product/B00CHPX6OI?psc=1&redirect=true&ref_=oh_aui_search_detailpage)
 * [jumper wires to pi](http://www.amazon.com/Kalevel%C2%AE-120pcs-Multicolored-Female-Breadboard/dp/B00M5WLZDW/)
+
+# special thanks
+* originall adapter from [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
