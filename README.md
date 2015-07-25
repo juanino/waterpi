@@ -26,4 +26,4 @@ for water, alert and clear when the condition is corrected.
 * [jumper wires to pi](http://www.amazon.com/Kalevel%C2%AE-120pcs-Multicolored-Female-Breadboard/dp/B00M5WLZDW/)
 
 # special thanks
-* originall adapter from [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
+* adapted from reading [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
