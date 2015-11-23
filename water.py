@@ -13,7 +13,7 @@ import sys
 print "Water sensor starting up. please wait."
 
 red = 36
-green = 7
+green = 11
 water_sensor = 8 
 sensor_name = "basement bathroom"
 
