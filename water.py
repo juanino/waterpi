@@ -15,6 +15,7 @@ print "Water sensor starting up. please wait."
 red = 36
 green = 11
 water_sensor = 8 
+buzzer = 40
 sensor_name = "basement bathroom"
 
 wateralertstate = "clear" # zero is clear
@@ -50,11 +51,14 @@ while True:
     # turn on led if  alert is on
     GPIO.setup(red, GPIO.OUT)
     GPIO.setup(green, GPIO.OUT)
+    GPIO.setup(buzzer, GPIO.OUT)
     if wateralertstate == "alert":
        GPIO.output(red, 1)
+       GPIO.output(buzzer, 1)
        GPIO.output(green, 0)
     else:
        GPIO.output(red, 0)
+       GPIO.output(buzzer, 0)
        GPIO.output(green, 1)
        # show we are sleeping
        time.sleep(1)
