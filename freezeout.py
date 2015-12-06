@@ -40,4 +40,9 @@ while True:
 	currtime = time.strftime('%Y/%m/%d %H:%M:%S')
         print("[" + currtime + "]" + sensor_name + " ->"),
         print(temp)
+        # yes i know i should use pycurl
+        #os.system('curl https://dweet.io/dweet/for/jgu1?temp=' + str(temp))
+        url = 'curl \'https://dweet.io/dweet/for/jgu1?temp=' + str(temp) + '&temp_last=x\''
+        print "url is" + url
+        os.system(url);
 	time.sleep(60)
