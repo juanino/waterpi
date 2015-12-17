@@ -6,6 +6,7 @@ import time
 import RPi.GPIO as GPIO
 import sys
 import time
+import urllib
  
 #os.system('modprobe w1-gpio')
 #os.system('modprobe w1-therm')
@@ -40,9 +41,10 @@ while True:
 	currtime = time.strftime('%Y/%m/%d %H:%M:%S')
         print("[" + currtime + "]" + sensor_name + " ->"),
         print(temp)
+        temp_l = urllib.quote_plus(currtime)
         # yes i know i should use pycurl
         #os.system('curl https://dweet.io/dweet/for/jgu1?temp=' + str(temp))
-        url = 'curl \'https://dweet.io/dweet/for/jgu1?temp=' + str(temp) + '&temp_last=x\''
+        url = 'curl \'https://dweet.io/dweet/for/jgu1?temp=' + str(temp) + '&temp_last=' + temp_l + '\''
         print "url is" + url
         os.system(url);
 	time.sleep(60)
