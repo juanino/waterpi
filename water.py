@@ -9,6 +9,7 @@ import RPi.GPIO as GPIO
 import time 
 import os
 import sys
+import urllib
 
 print "Water sensor starting up. please wait."
 
@@ -43,6 +44,17 @@ def wateralert(state):
            time.sleep(5)
     wateralertstate=state
 
+def update_dashboard(dweet_thing,dash_element,dash_state):
+    #print "dweeting for thing " + dweet_thing
+    #print "Updating dashboard element" + dash_element
+    #print "Setting state to " + dash_state
+    sensor1_l = urllib.quote_plus(currtime)
+    url = 'curl \'https://dweet.io/dweet/for/jgu1?sensor1=' + dash_state + '&sensor1_l=' + sensor1_l + '\''
+    print "url is " + url
+    os.system(url);
+
+
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(water_sensor, GPIO.IN, GPIO.PUD_UP)
@@ -69,7 +81,9 @@ while True:
         currtime = time.strftime('%Y/%m/%d %H:%M:%S')
         print currtime + " Sensor [" + sensor_name + "] water: is dry"
         wateralert("clear")
+        update_dashboard("jgu1",sensor_name,"0")
     else:
         print "Sensor water: is wet"
         wateralert("alert")
+        update_dashboard("jgu1",sensor_name,"1")
     time.sleep(1)
