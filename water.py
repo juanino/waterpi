@@ -50,7 +50,7 @@ def update_dashboard(dweet_thing,dash_element,dash_state):
     #print "Setting state to " + dash_state
     sensor1_l = urllib.quote_plus(currtime)
     url = 'curl \'https://dweet.io/dweet/for/jgu1?sensor1=' + dash_state + '&sensor1_l=' + sensor1_l + '\''
-    print "url is " + url
+    #print "url is " + url
     os.system(url);
 
 
@@ -79,7 +79,7 @@ while True:
     # check water sensor
     if GPIO.input(water_sensor):
         currtime = time.strftime('%Y/%m/%d %H:%M:%S')
-        print currtime + " Sensor [" + sensor_name + "] water: is dry"
+        print currtime + " \n\n Sensor [" + sensor_name + "] water: is dry \n"
         wateralert("clear")
         update_dashboard("jgu1",sensor_name,"0")
     else:
