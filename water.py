@@ -18,6 +18,7 @@ green = 11
 water_sensor = 8 
 buzzer = 40
 sensor_name = "basement bathroom"
+dashboard_counter = 0
 
 wateralertstate = "clear" # zero is clear
 
@@ -44,16 +45,20 @@ def wateralert(state):
            time.sleep(5)
     wateralertstate=state
 
-def update_dashboard(dweet_thing,dash_element,dash_state):
+def update_dashboard(dweet_thing,dash_element,dash_state,dashboard_counter):
     #print "dweeting for thing " + dweet_thing
     #print "Updating dashboard element" + dash_element
     #print "Setting state to " + dash_state
-    sensor1_l = urllib.quote_plus(currtime)
-    url = 'curl \'https://dweet.io/dweet/for/jgu1?sensor1=' + dash_state + '&sensor1_l=' + sensor1_l + '\''
-    #print "url is " + url
-    os.system(url);
-
-
+    dashboard_counter=dashboard_counter + 1
+    if dashboard_counter == 60:
+        print "max number checks before dashboard update met"
+        sensor1_l = urllib.quote_plus(currtime)
+        url = 'curl \'https://dweet.io/dweet/for/jgu1?sensor1=' + dash_state + '&sensor1_l=' + sensor1_l + '\''
+        print "url is " + url
+        os.system(url)
+        dashboard_counter = 0
+    #print "dashboard counter is " + str(dashboard_counter)
+    return(dashboard_counter)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -79,11 +84,11 @@ while True:
     # check water sensor
     if GPIO.input(water_sensor):
         currtime = time.strftime('%Y/%m/%d %H:%M:%S')
-        print currtime + " \n\n Sensor [" + sensor_name + "] water: is dry \n"
+        print currtime + "Sensor [" + sensor_name + "] water: is dry "
         wateralert("clear")
-        update_dashboard("jgu1",sensor_name,"0")
+        dashboard_counter=update_dashboard("jgu1",sensor_name,"0",dashboard_counter)
     else:
         print "Sensor water: is wet"
         wateralert("alert")
-        update_dashboard("jgu1",sensor_name,"1")
+        dashboard_counter=update_dashboard("jgu1",sensor_name,"1",dashboard_counter)
     time.sleep(1)
