@@ -20,6 +20,9 @@ for water, alert and clear when the condition is corrected.
 * a few jpg's to show a sample display and sample sensor
 * start_sensors.sh can be called from rc.local to start a screen session on boot
 
+# Dashboards
+* Sample [freeboard.io dashboard](https://freeboard.io/board/E4LaM5)
+
 # parts list
 * [leds with resistors](http://www.amazon.com/gp/product/B004JO2PVA?psc=1&redirect=true&ref_=oh_aui_search_detailpage)
 * [sensor plate and display panel](http://www.amazon.com/gp/product/B00L660Q10?psc=1&redirect=true&ref_=oh_aui_search_detailpage)
