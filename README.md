@@ -18,6 +18,7 @@ for water, alert and clear when the condition is corrected.
 * one copy of the program runs per sensor for now, I'm lazy
 * modify the sensor_name because its what spews to screen
 * a few jpg's to show a sample display and sample sensor
+* start_sensors.sh can be called from rc.local to start a screen session on boot
 
 # parts list
 * [leds with resistors](http://www.amazon.com/gp/product/B004JO2PVA?psc=1&redirect=true&ref_=oh_aui_search_detailpage)
