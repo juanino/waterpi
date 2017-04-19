@@ -17,7 +17,7 @@ for water, alert and clear when the condition is corrected.
 * water2.py is just another sensor
 * one copy of the program runs per sensor for now, I'm lazy
 * modify the sensor_name because its what spews to screen
-* a few jpg's to show a sample display and sample sensor
+* a few jpg's to show a sample [display](display.jpg) and [sample sensor](sensor.jpg)
 * start_sensors.sh can be called from rc.local to start a screen session on boot
 
 # Dashboards
