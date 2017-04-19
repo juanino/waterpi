@@ -3,6 +3,7 @@ Water sensor for raspberry pi.
 Some code to monitor a basement floor or other area
 for water, alert and clear when the condition is corrected.
 
+!(sensor.jpg) !(display.jpg)
 
 # Features
 * poll a physical sensor 
