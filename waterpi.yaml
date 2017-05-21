@@ -1,0 +1,6 @@
+# Config file for waterpi project
+# copy this file to /etc, bro.
+
+slack:
+    enable: True
+    webhook: https://hooks.slack.com/services/XXXXXXXXX/BXXXXXXX5/DXXXXXXXXXXXCXXWeopdb6mg
