@@ -20,6 +20,7 @@ for water, alert and clear when the condition is corrected.
 * modify the sensor_name because its what spews to screen
 * a few jpg's to show a sample [display](display.jpg) and [sample sensor](sensor.jpg)
 * start_sensors.sh can be called from rc.local to start a screen session on boot
+* send_slack.py uses waterpi.yaml, copy to /etc and edit the webhook
 
 # Dashboards
 * Sample [freeboard.io dashboard](https://freeboard.io/board/E4LaM5)

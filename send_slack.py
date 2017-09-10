@@ -5,6 +5,12 @@ import json
 import requests
 import sys
 
+# sample usage:
+# echo blah | ./send_slack.py
+# 
+# this is used by the startup scripts to notify of a raspberry pi reboot
+
+
 # debug
 pp = pprint.PrettyPrinter(indent=4)
 
