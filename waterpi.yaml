@@ -4,3 +4,7 @@
 slack:
     enable: True
     webhook: https://hooks.slack.com/services/XXXXXXXXX/BXXXXXXX5/DXXXXXXXXXXXCXXWeopdb6mg
+
+sns:
+    enable: True
+    arn: arn:aws:sns:us-east-1:XXXXXXXXXXXX:waterpi
