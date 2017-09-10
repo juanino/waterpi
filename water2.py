@@ -28,12 +28,12 @@ def wateralert(state):
        if state == "clear":
            os.system("/home/pi/clear.sh")
            message="\"water CLEAR for " + sensor_name + "\""
-           os.system("/home/pi/sendsns.sh 1 " + message)
+           os.system("/home/pi/waterpi/sendsns.sh 1 " + message)
            #os.system("python /home/pi/powertail_off.py")
        if state == "alert":
            os.system("/home/pi/alert.sh")
            message="\"water ALARM for " + sensor_name + "\""
-           os.system("/home/pi/sendsns.sh 1 " + message)
+           os.system("/home/pi/waterpi/sendsns.sh 1 " + message)
            #os.system("python /home/pi/powertail_on.py")
            #print "running pump for XX sec regardless"
            # change sleep for amount of time to run pump
