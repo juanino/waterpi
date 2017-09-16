@@ -7,6 +7,12 @@ for water, alert and clear when the condition is corrected.
 * copy waterpi.yaml to /etc
 * edit it with your slack webhook if you want 
 * edit it with your sns topic so you can get SMS texts
+* add some lines to /boot/config.txt
+```
+# jgu for thermo DS18B20
+dtoverlay=w1-gpio,gpiopin=27
+dtparam=i2c_arm=on
+```
 
 
 # Features
