@@ -3,6 +3,11 @@ Water sensor for raspberry pi.
 Some code to monitor a basement floor or other area
 for water, alert and clear when the condition is corrected.
 
+# install
+* copy waterpi.yaml to /etc
+* edit it with your slack webhook if you want 
+* edit it with your sns topic so you can get SMS texts
+
 ![sensor pic](sensor.jpg) ![control panel](display.jpg)
 
 # Features
