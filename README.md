@@ -8,7 +8,6 @@ for water, alert and clear when the condition is corrected.
 * edit it with your slack webhook if you want 
 * edit it with your sns topic so you can get SMS texts
 
-![sensor pic](sensor.jpg) ![control panel](display.jpg)
 
 # Features
 * poll a physical sensor 
@@ -40,3 +39,5 @@ for water, alert and clear when the condition is corrected.
 
 # special thanks
 * adapted from reading [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
+
+![sensor pic](sensor.jpg) ![control panel](display.jpg)
