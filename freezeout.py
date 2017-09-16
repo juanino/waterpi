@@ -41,6 +41,11 @@ while True:
 	currtime = time.strftime('%Y/%m/%d %H:%M:%S')
         print("[" + currtime + "]" + sensor_name + " ->"),
         print(temp)
+
+        #cmd = "echo \" basement temp is " + str(temp) + " \" |/home/pi/waterpi/send_slack.py"
+        #print(cmd)
+        #os.system(cmd)
+
         temp_l = urllib.quote_plus(currtime)
         # yes i know i should use pycurl
         #os.system('curl https://dweet.io/dweet/for/jgu1?temp=' + str(temp))
