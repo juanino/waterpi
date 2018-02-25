@@ -8,3 +8,4 @@ screen -t basement-bath-water ./water.py
 screen -t basement-closet-water ./water2.py
 screen -t basement-thermal ./freezeout.py
 screen -t check-internet ./check_internet.sh
+screen -t mouse_trap.py ./mouse_trap.py
