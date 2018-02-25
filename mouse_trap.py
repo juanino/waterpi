@@ -18,9 +18,14 @@ silent = 0 # set to 1 to turn off alerts
 while True:
     currtime = time.strftime('%Y/%m/%d %H:%M:%S')
     if io.input(trap_pin):
-        print(currtime + "->trap closed - clear debris and reset")
-        if silent !=1:
-            wateralert("alert")
+        # at long distances voltage can drop often so double check
+        # plus I shouldn't use aluminum foil so much instead of wire
+        print("tripped but sleeping 5 seconds to double check")
+        time.sleep(5)
+        if io.input(trap_pin): # check to see if it's still shut after waiting 
+            print(currtime + "->trap closed - clear debris and reset")
+            if silent !=1:
+                wateralert("alert")
     else:
         print(currtime + "->trap is open")
         if silent !=1:

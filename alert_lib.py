@@ -27,7 +27,7 @@ def wateralert(state):
            max_msg_sent = 1
        else:
            print("---------------------------------------->state change!")
-           print("this system has sent" + str(total_alerts))
+           print("this system has sent " + str(total_alerts) + " alerts")
            if state == "clear":
                os.system("banner clear")
                message="\"CLEAR for " + sensor_name + "\""
