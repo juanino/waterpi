@@ -31,6 +31,7 @@ dtparam=i2c_arm=on
 * a few jpg's to show a sample [display](display.jpg) and [sample sensor](sensor.jpg)
 * start_sensors.sh can be called from rc.local to start a screen session on boot
 * send_slack.py uses waterpi.yaml, copy to /etc and edit the webhook
+* mouse_trap.py has nothing to do with water alarms, but is connected to the same raspberry pi so it's in here
 
 # Dashboards
 * Sample [freeboard.io dashboard](https://freeboard.io/board/E4LaM5)
@@ -47,3 +48,4 @@ dtparam=i2c_arm=on
 * adapted from reading [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
 
 ![sensor pic](sensor.jpg) ![control panel](display.jpg)
+![mousetrap_pic](trap.jpg)
