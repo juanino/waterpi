@@ -21,7 +21,7 @@ while True:
         # at long distances voltage can drop often so double check
         # plus I shouldn't use aluminum foil so much instead of wire
         print("tripped but sleeping 5 seconds to double check")
-        time.sleep(5)
+        time.sleep(60)
         if io.input(trap_pin): # check to see if it's still shut after waiting 
             print(currtime + "->trap closed - clear debris and reset")
             if silent !=1:
@@ -30,5 +30,5 @@ while True:
         print(currtime + "->trap is open")
         if silent !=1:
             wateralert("clear") 
-    time.sleep(0.5)
+    time.sleep(1)
 
