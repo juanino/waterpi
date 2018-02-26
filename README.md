@@ -48,9 +48,9 @@ dtparam=i2c_arm=on
 * adapted from reading [this page](https://pi.gate.ac.uk/pages/basics.html#flood-alarm)
 
 # Images of physical interfaces
-Water sensor
+* Water sensor
 ![sensor pic](sensor.jpg)
-Control Panel
+* Control Panel
 ![control panel](display.jpg)
-Mouse Trap
+* Mouse Trap
 ![mousetrap_pic](trap.jpg)
