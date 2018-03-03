@@ -20,8 +20,8 @@ while True:
     if io.input(trap_pin):
         # at long distances voltage can drop often so double check
         # plus I shouldn't use aluminum foil so much instead of wire
-        print("tripped but sleeping 60 seconds to double check")
-        time.sleep(60)
+        print("tripped but sleeping 300 seconds to double check")
+        time.sleep(300)
         if io.input(trap_pin): # check to see if it's still shut after waiting 
             print(currtime + "->trap closed - clear debris and reset")
             if silent !=1:
