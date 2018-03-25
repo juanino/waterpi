@@ -10,19 +10,28 @@ from alert_lib import wateralert
 
 io.setmode(io.BOARD)
 
-trap_pin = 32
+trap_pin = 32 # gpio pin
+max_reads = 720 # number of times the sensor can read closed before alerting
+silent = 0 # set to 1 to turn off alerts
+double_check_interval = 5 # how often sensor is checked once tripped to confirm up to max_reads
 
 io.setup(trap_pin, io.IN, pull_up_down=io.PUD_UP) # activate input with PullUp
-silent = 0 # set to 1 to turn off alerts
 
 while True:
     currtime = time.strftime('%Y/%m/%d %H:%M:%S')
     if io.input(trap_pin):
-        # at long distances voltage can drop often so double check
-        # plus I shouldn't use aluminum foil so much instead of wire
-        print("tripped but sleeping 300 seconds to double check")
-        time.sleep(300)
-        if io.input(trap_pin): # check to see if it's still shut after waiting 
+        trip_counter = 0
+        while (io.input(trap_pin) and  trip_counter < max_reads):
+            # at long distances voltage can drop often so double check
+            # plus I shouldn't use aluminum foil so much instead of wire
+            # this is the inside loop. read the sensor max_reads times to be sure
+            # and sleep double_check_interval
+            print("tripped but sleeping to double check")
+            print("trip counter is", trip_counter)
+            time.sleep(double_check_interval)
+            trip_counter = trip_counter + 1
+        if (io.input(trap_pin) and trip_counter == max_reads): # if still closed after ten, alert
+            currtime = time.strftime('%Y/%m/%d %H:%M:%S')
             print(currtime + "->trap closed - clear debris and reset")
             if silent !=1:
                 wateralert("alert")
@@ -30,5 +39,5 @@ while True:
         print(currtime + "->trap is open")
         if silent !=1:
             wateralert("clear") 
-    time.sleep(1)
+    time.sleep(5)
 
