@@ -12,7 +12,12 @@ import os
 import sys
 import urllib
 
+# pushover
+import httplib
+import yaml
+
 print "Water sensor starting up. please wait."
+
 
 red = 36
 green = 11
@@ -22,6 +27,33 @@ sensor_name = "basement bathroom"
 dashboard_counter = 0
 
 wateralertstate = "clear" # zero is clear
+
+def send_pushover(message):
+
+    # read yaml
+    with open('/etc/waterpi.yaml', 'r') as ymlfile:
+        cfg = yaml.load(ymlfile)
+
+    app_token = cfg['pushover']['app_token']
+    user_key = cfg['pushover']['user_key'] 
+    retry = cfg['pushover']['retry'] 
+    expire = cfg['pushover']['expire'] 
+
+    print("app token is " + app_token)
+    print("user_key is " + user_key)
+    print("message is " + message)
+
+    conn = httplib.HTTPSConnection("api.pushover.net:443")
+    conn.request("POST", "/1/messages.json",
+      urllib.urlencode({
+      "token": app_token,
+      "user": user_key,
+      "message": message,
+      "priority": 2,
+      "retry": retry,
+      "expire": expire,
+      }), { "Content-type": "application/x-www-form-urlencoded" })
+    print conn.getresponse()
 
 def wateralert(state):
     global wateralertstate
@@ -33,12 +65,14 @@ def wateralert(state):
            os.system("/home/pi/clear.sh")
            message="\"water CLEAR for " + sensor_name + "\""
            os.system("/home/pi/waterpi/sendsns.sh 1 " + message)
+           send_pushover(message)
            # turn pump off on clear
            #os.system("python /home/pi/powertail_off.py")
        if state == "alert":
            os.system("/home/pi/alert.sh")
            message="\"water ALARM for " + sensor_name + "\""
            os.system("/home/pi/waterpi/sendsns.sh 1 " + message)
+           send_pushover(message)
            #os.system("python /home/pi/powertail_on.py")
            # turn pump on then sleep for a bit to drain pit
            # adjust sleep if using pump to 6 minutes or more depending on pump sensitivity
@@ -60,6 +94,9 @@ def update_dashboard(dweet_thing,dash_element,dash_state,dashboard_counter):
         dashboard_counter = 0
     #print "dashboard counter is " + str(dashboard_counter)
     return(dashboard_counter)
+
+print("sending test message")
+send_pushover("sensors starting up: " + __file__ + " " + sensor_name)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
