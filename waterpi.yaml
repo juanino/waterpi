@@ -8,3 +8,10 @@ slack:
 sns:
     enable: True
     arn: arn:aws:sns:us-east-1:XXXXXXXXXXXX:waterpi
+
+pushover:
+    enable: True
+    app_token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    user_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    retry: 60
+    expire: 900
